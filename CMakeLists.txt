@@ -12,12 +12,7 @@ link_directories(${GTK3_LIBRARY_DIRS})
 add_subdirectory(src)
 
 set(GTK_LIBRARIES
-    ${GTK_SUBPROJECTS} ${GTK3_LIBRARIES})
-
-add_executable(gtk_wrapper Main_Test.cpp)
-target_include_directories(gtk_wrapper PRIVATE include)
-target_link_libraries(gtk_wrapper PRIVATE ${GTK_LIBRARIES})
-
+    ${GTK_SUBPROJECTS} ${GTK3_LIBRARIES} PARENT_SCOPE)
 
 if (CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
 	add_compile_options(

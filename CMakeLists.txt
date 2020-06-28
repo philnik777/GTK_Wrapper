@@ -12,7 +12,10 @@ link_directories(${GTK3_LIBRARY_DIRS})
 add_subdirectory(src)
 
 set(GTK_LIBRARIES
-    ${GTK_SUBPROJECTS} ${GTK3_LIBRARIES} PARENT_SCOPE)
+    ${GTK_SUBPROJECTS} 
+    ${GTK3_LIBRARIES} 
+    PARENT_SCOPE
+)
 
 if (CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
 	add_compile_options(

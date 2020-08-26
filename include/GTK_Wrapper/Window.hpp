@@ -1,13 +1,16 @@
 #pragma once
+#include "Element.hpp"
+
+#include <functional>
 #include <memory>
 #include <string>
-
 struct _GtkApplication;
 namespace gtk
 {
 using Application = _GtkApplication*;
 
-class Window
+class MenuBar;
+class Window : public Element
 {
   public:
 	Window(const std::string& name);
@@ -16,7 +19,10 @@ class Window
 		return std::make_shared<Window>(name);
 	}
 
-	void run();
+	void loop();
+	void setCloseCallback(std::function<void()> closeCallback);
+	void setMenuBar(std::shared_ptr<MenuBar>);
+	void close();
 
   private:
 	Application handle;
